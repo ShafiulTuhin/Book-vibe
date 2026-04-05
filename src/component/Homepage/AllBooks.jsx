@@ -1,18 +1,22 @@
 import React, { use } from "react";
 import StarImg from "../../assets/star.png";
+import { Link } from "react-router";
 
 const bookPromise = fetch("/booksData.json").then((res) => res.json());
 
 const AllBooks = () => {
   const books = use(bookPromise);
-  console.log(books);
 
   return (
     <div className="lg:py-20 py-10 ">
       <h2 className="text-center font-bold text-3xl">Books</h2>
       <div className="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-4">
         {books.map((book) => (
-          <div className="border border-gray-200 p-4 rounded-lg">
+          <Link
+            to={`/bookDetails/${book.bookId}`}
+            className="border border-gray-200 p-4 rounded-lg"
+            key={book.bookId}
+          >
             <div className="bg-slate-100 py-[80px] rounded-lg mb-6">
               <img
                 src={book.image}
@@ -21,8 +25,10 @@ const AllBooks = () => {
               />
             </div>
             <div className="flex gap-8 py-2 px-5 mb-4">
-              {book.tags.map((t) => (
-                <p className="text-success font-bold">{t}</p>
+              {book.tags.map((t, i) => (
+                <p key={i} className="text-success font-bold">
+                  {t}
+                </p>
               ))}{" "}
             </div>
             <div>
@@ -38,7 +44,7 @@ const AllBooks = () => {
                 <img src={StarImg} alt="" className="h-4" />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
