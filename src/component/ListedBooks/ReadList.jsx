@@ -1,18 +1,35 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BookContext } from "../../context/BookContext";
 import { FaRegSadTear } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-const ReadList = () => {
+const ReadList = ({ sortingType }) => {
+  // getting value from context
   const { readLists } = useContext(BookContext);
+  // Navigate to home
   const navigate = useNavigate();
   const backToBooks = () => {
     navigate("/");
   };
-  if (readLists.length === 0) {
+  // filter sort
+  const [filterReadList, setFilterReadList] = useState(readLists);
+  useEffect(() => {
+    if (sortingType) {
+      if (sortingType === "pages") {
+        setFilterReadList(
+          [...readLists].sort((a, b) => a.totalPages - b.totalPages),
+        );
+      } else if (sortingType === "rating") {
+        setFilterReadList([...readLists].sort((a, b) => a.rating - b.rating));
+      }
+    }
+  }, [sortingType, readLists]);
+
+  // If no book in readlist
+  if (filterReadList.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] bg-gray-100 px-4 text-center">
-        <div className="bg-white rounded-2xl shadow-lg p-10 md:p-16 max-w-md w-full flex flex-col items-center gap-4">
+        <div className=" bg-white rounded-2xl shadow-lg p-10 md:p-16 max-w-md w-full flex flex-col items-center gap-4">
           <FaRegSadTear className="text-6xl md:text-8xl text-gray-400" />
           <h2 className="font-bold text-gray-600 text-2xl md:text-3xl">
             No Read list Data Found!
@@ -31,11 +48,11 @@ const ReadList = () => {
       </div>
     );
   }
-
+  // Main component
   return (
     <div className="lg:px-0 px-4">
       <div className="flex flex-col items-center gap-4 px-4">
-        {readLists.map((book) => (
+        {filterReadList.map((book) => (
           <div
             key={book.bookId}
             className="w-full max-w-[1320px] h-[280px] p-4 flex flex-col md:flex-row gap-4 md:gap-6 rounded-xl shadow-lg bg-white"

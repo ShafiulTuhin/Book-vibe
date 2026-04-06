@@ -3,14 +3,23 @@ import { BookContext } from "../../context/BookContext";
 import { FaRegSadTear } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-const Wishlist = () => {
+const Wishlist = ({ sortingType }) => {
   const { wishLists } = useContext(BookContext);
   const navigate = useNavigate();
   const backToBooks = () => {
     navigate("/");
   };
 
-  if (wishLists.length === 0) {
+  // filter sort
+  let filterReadList = wishLists;
+  if (sortingType === "pages") {
+    filterReadList = [...wishLists].sort((a, b) => a.totalPages - b.totalPages);
+  } else if (sortingType === "rating") {
+    filterReadList = [...wishLists].sort((a, b) => a.rating - b.rating);
+  }
+
+  // If no book in readlist
+  if (filterReadList.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] bg-gray-100 px-4 text-center">
         <div className="bg-white rounded-2xl shadow-lg p-10 md:p-16 max-w-md w-full flex flex-col items-center gap-4">
@@ -36,7 +45,7 @@ const Wishlist = () => {
   return (
     <div className="lg:px-0 px-4">
       <div className="flex flex-col items-center gap-4 px-4">
-        {wishLists.map((book) => (
+        {filterReadList.map((book) => (
           <div
             key={book.bookId}
             className="w-full max-w-[1320px] h-[280px] p-4 flex flex-col md:flex-row gap-4 md:gap-6 rounded-xl shadow-lg bg-white"
