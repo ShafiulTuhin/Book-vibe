@@ -4,16 +4,16 @@ import { toast } from "react-toastify";
 export const BookContext = createContext();
 
 const BookProvider = ({ children }) => {
-  const [markBooks, setMarkBooks] = useState([]);
+  const [readLists, setReadLists] = useState([]);
   const [wishLists, setWishLists] = useState([]);
 
   //   Marked as read function
   const handleMarkedBook = (marked) => {
-    const findMarkedBook = markBooks.find(
+    const findMarkedBook = readLists.find(
       (book) => book.bookId == marked.bookId,
     );
     if (!findMarkedBook) {
-      setMarkBooks([...markBooks, marked]);
+      setReadLists([...readLists, marked]);
       toast.success(`${marked.bookName} added to mark list`);
     } else {
       toast.error(`${marked.bookName} The book is already added`);
@@ -21,7 +21,7 @@ const BookProvider = ({ children }) => {
   };
   //   Wishlist function
   const handleWIshedList = (marked) => {
-    const isReadList = markBooks.find((book) => book.bookId === marked.bookId);
+    const isReadList = readLists.find((book) => book.bookId === marked.bookId);
     if (isReadList) {
       toast.error(`${marked.bookName} is already in mark list`);
       return;
@@ -37,8 +37,8 @@ const BookProvider = ({ children }) => {
     }
   };
   const props = {
-    markBooks,
-    setMarkBooks,
+    readLists,
+    setReadLists,
     handleMarkedBook,
     wishLists,
     setWishLists,

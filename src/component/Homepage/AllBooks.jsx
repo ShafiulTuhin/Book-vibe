@@ -9,7 +9,9 @@ const AllBooks = () => {
 
   return (
     <div className="lg:py-20 py-10 ">
-      <h2 className="text-center font-bold text-3xl mb-10">Books</h2>
+      <h2 className="bg-gray-200 text-3xl text-[#444444] font-bold text-center py-7 mb-6 rounded-lg">
+        Books
+      </h2>
       <div className="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-4">
         {books.map((book) => (
           <Link
