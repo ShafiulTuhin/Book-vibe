@@ -19,7 +19,7 @@ const Navbar = () => {
         Listed Books
       </NavLink>
       <NavLink
-        to="/read-pages"
+        to="/recharts"
         className={`border-2 border-transparent px-2 py-1 ${active}`}
       >
         Pages to Read
