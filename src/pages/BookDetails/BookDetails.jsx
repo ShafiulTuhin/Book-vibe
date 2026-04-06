@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
+import { BookContext } from "../../context/BookCOntext";
 
 const BookDetails = () => {
+  const handleMarkedBook = useContext(BookContext);
+
   const books = useLoaderData();
   const params = useParams();
   const findBook = books.find((book) => book.bookId == params.id);
@@ -68,8 +72,13 @@ const BookDetails = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 pt-4 flex-wrap">
-            <button className="btn btn-success text-white">Read Now</button>
-            <button className="btn btn-info text-white">Wishlist</button>
+            <button
+              onClick={() => handleMarkedBook(findBook)}
+              className="btn btn-success text-white"
+            >
+              Mark as Read
+            </button>
+            <button className="btn btn-info text-white">Add To Wishlist</button>
           </div>
         </div>
       </div>
