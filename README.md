@@ -1,7 +1,5 @@
 # 📚 Book-Vibe
 
-![Book-Vibe Banner](https://via.placeholder.com/800x200?text=Book-Vibe+Project)  
-
 **Book-Vibe** is a **responsive book management app** built with **React**, designed to help users organize, sort, and manage books efficiently. It showcases **frontend skills, state management, dynamic UI updates, and localStorage integration**.
 
 ---
