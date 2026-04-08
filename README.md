@@ -1,16 +1,60 @@
-# React + Vite
+# 📚 Book-Vibe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Book-Vibe Banner](https://via.placeholder.com/800x200?text=Book-Vibe+Project)  
 
-Currently, two official plugins are available:
+**Book-Vibe** is a **responsive book management app** built with **React**, designed to help users organize, sort, and manage books efficiently. It showcases **frontend skills, state management, dynamic UI updates, and localStorage integration**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add, view, and manage books with a clean and intuitive interface.  
+- Dynamic sorting of books by title, author, or other criteria.  
+- Persistent data storage using **localStorage**.  
+- Responsive UI with **Tailwind CSS** and **DaisyUI**.  
+- Modular and reusable **React components**.  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Tech Stack & Skills Used
+
+<p>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" alt="React" style="margin-right:8px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="40" alt="Tailwind CSS" style="margin-right:8px;" />
+  <img src="https://raw.githubusercontent.com/saadeghi/daisyui/main/logo.svg" width="40" alt="DaisyUI" style="margin-right:8px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" alt="JavaScript" style="margin-right:8px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" alt="HTML5" style="margin-right:8px;" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" alt="CSS3" />
+</p>
+
+---
+
+## 📈 Learning Outcomes
+
+- Practiced **component-based architecture** in React.  
+- Implemented **dynamic sorting and state updates**.  
+- Learned **persistent storage** using localStorage.  
+- Built a **responsive, modern UI** using Tailwind CSS and DaisyUI.  
+
+---
+
+## 🌐 Live Demo
+
+[Check out the live project](https://book-vibes-tuhin.netlify.app/)  
+
+---
+
+## 📂 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/ShafiulTuhin/Book-vibe.git
+
+# Navigate to project folder
+cd Book-vibe
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
